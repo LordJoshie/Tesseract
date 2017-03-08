@@ -49,7 +49,7 @@ class MovePlayerPacket extends DataPacket{
 	}
 
 	public function decode(){
-		$this->eid = $this->getEntityId(); //EntityRuntimeID
+		$this->eid = $this->getEntityRuntimeId();
 		$this->getVector3f($this->x, $this->y, $this->z);
 		$this->pitch = $this->getLFloat();
 		$this->yaw = $this->getLFloat();
@@ -61,7 +61,7 @@ class MovePlayerPacket extends DataPacket{
 
 	public function encode(){
 		$this->reset();
-		$this->putEntityId($this->eid); //EntityRuntimeID
+		$this->putEntityRuntimeId($this->eid);
 		$this->putVector3f($this->x, $this->y, $this->z);
 		$this->putLFloat($this->pitch);
 		$this->putLFloat($this->yaw);

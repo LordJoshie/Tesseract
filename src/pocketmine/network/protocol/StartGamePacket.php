@@ -70,7 +70,7 @@ class StartGamePacket extends DataPacket{
 		$this->putVarInt($this->generator);
 		$this->putVarInt($this->worldGamemode);
 		$this->putVarInt($this->difficulty);
-		$this->putBlockCoords($this->spawnX, $this->spawnY, $this->spawnZ);
+		$this->putBlockPosition($this->spawnX, $this->spawnY, $this->spawnZ);
 		$this->putBool($this->hasAchievementsDisabled);
 		$this->putVarInt($this->dayCycleStopTime);
 		$this->putBool($this->eduMode);

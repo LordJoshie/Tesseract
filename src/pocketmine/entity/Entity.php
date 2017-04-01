@@ -138,13 +138,13 @@ abstract class Entity extends Location implements Metadatable{
 	const DATA_FLAG_SPRINTING = 3;
 	const DATA_FLAG_ACTION = 4;
 	const DATA_FLAG_INVISIBLE = 5;
-	const DATA_FLAG_TEMPTED = 6; //???
+	const DATA_FLAG_TEMPTED = 6;
 	const DATA_FLAG_INLOVE = 7;
 	const DATA_FLAG_SADDLED = 8;
 	const DATA_FLAG_POWERED = 9;
-	const DATA_FLAG_IGNITED = 10; //for creepers?
+	const DATA_FLAG_IGNITED = 10;
 	const DATA_FLAG_BABY = 11;
-	const DATA_FLAG_CONVERTING = 12; //???
+	const DATA_FLAG_CONVERTING = 12;
 	const DATA_FLAG_CRITICAL = 13;
 	const DATA_FLAG_CAN_SHOW_NAMETAG = 14;
 	const DATA_FLAG_ALWAYS_SHOW_NAMETAG = 15;
@@ -165,7 +165,7 @@ abstract class Entity extends Location implements Metadatable{
 	const DATA_FLAG_MOVING = 32;
 	const DATA_FLAG_BREATHING = 33;
 	const DATA_FLAG_CHESTED = 34;
-	const DATA_FLAG_STACKABLE = 35;
+    const DATA_FLAG_STACKABLE = 35;
 	const DATA_FLAG_SHOWBASE = 36;
 	const DATA_FLAG_REARING = 37;
 	const DATA_FLAG_VIBRATING = 38;

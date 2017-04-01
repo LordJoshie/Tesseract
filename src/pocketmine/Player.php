@@ -3218,7 +3218,7 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 					}elseif($inv instanceof EnchantInventory and $packet->item->hasEnchantments()){
 						$inv->onEnchant($this, $inv->getItem($packet->slot), $packet->item);
 					}
-
+                    
 					$transaction = new BaseTransaction($inv, $packet->slot, $packet->item, $achievements);
 				}else{
 					//Client sent a transaction for a window which the server doesn't think they have open

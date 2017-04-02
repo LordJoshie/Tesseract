@@ -199,6 +199,9 @@ class BinaryStream extends \stdClass{
 		if($nbtLen > 0){
 			$nbt = $this->get($nbtLen);
 		}
+		
+		$this->get(2); //??? (TODO)
+
 		return Item::get(
 			$id,
 			$data,
@@ -220,6 +223,7 @@ class BinaryStream extends \stdClass{
 		$nbt = $item->getCompoundTag();
 		$this->putLShort(strlen($nbt));
 		$this->put($nbt);
+		$this->put("\x00\x00"); //TODO: find out what these are
 	}
 
 	public function getString(){

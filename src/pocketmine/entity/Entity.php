@@ -93,7 +93,8 @@ abstract class Entity extends Location implements Metadatable{
 	const DATA_AIR = 7; //short
 	const DATA_POTION_COLOR = 8; //int (ARGB!)
 	const DATA_POTION_AMBIENT = 9; //byte
-	
+
+	const DATA_ENTITY_AGE = 25; //short
 	/* 27 (byte) player-specific flags
 	 * 28 (int) player "index"?
 	 * 29 (block coords) bed position */
@@ -115,10 +116,21 @@ abstract class Entity extends Location implements Metadatable{
 	const DATA_BOUNDING_BOX_WIDTH = 54; //float
 	const DATA_BOUNDING_BOX_HEIGHT = 55; //float
 	const DATA_FUSE_LENGTH = 56; //int
-	/* 56 (vector3f)
-	 * 57 (byte)
-	 * 58 (float)
-	 * 59 (float) */
+	/* 57 (vector3f)
+	 * 58 (byte)
+	 * 59 (float)
+	 * 60 (float) */
+	const DATA_AREA_EFFECT_CLOUD_RADIUS = 61; //float
+	const DATA_AREA_EFFECT_CLOUD_WAITING = 62; //int
+	const DATA_AREA_EFFECT_CLOUD_PARTICLE_ID = 63; //int
+	/* 64 (int), shulker-related
+	 * 65 (byte), shulker-related
+	 * 66 (short) shulker-related
+	 * 67 (unknown), shulker-related */
+	const DATA_TRADING_PLAYER_EID = 68; //long
+
+	const DATA_STRENGTH = 76; //int
+	const DATA_MAX_STRENGTH = 77; //int
 
 	const DATA_FLAG_ONFIRE = 0;
 	const DATA_FLAG_SNEAKING = 1;
@@ -139,6 +151,7 @@ abstract class Entity extends Location implements Metadatable{
 	const DATA_FLAG_IMMOBILE = 16, DATA_FLAG_NO_AI = 16;
 	const DATA_FLAG_SILENT = 17;
 	const DATA_FLAG_WALLCLIMBING = 18;
+<<<<<<< HEAD
 	const DATA_FLAG_RESTING = 19; //for bats?
 	const DATA_FLAG_SITTING = 20;
 	const DATA_FLAG_ANGRY = 21;
@@ -159,6 +172,27 @@ abstract class Entity extends Location implements Metadatable{
 	const WEST = 1;
 	const NORTH = 2;
 	const EAST = 3;
+=======
+
+	const DATA_FLAG_RESTING = 22;
+	const DATA_FLAG_SITTING = 23;
+	const DATA_FLAG_ANGRY = 24;
+	const DATA_FLAG_INTERESTED = 25;
+	const DATA_FLAG_CHARGED = 26;
+	const DATA_FLAG_TAMED = 27;
+	const DATA_FLAG_LEASHED = 28;
+	const DATA_FLAG_SHEARED = 29;
+	const DATA_FLAG_GLIDING = 30;
+	const DATA_FLAG_ELDER = 31;
+	const DATA_FLAG_MOVING = 32;
+	const DATA_FLAG_BREATHING = 33;
+	const DATA_FLAG_CHESTED = 34;
+	const DATA_FLAG_STACKABLE = 35;
+	const DATA_FLAG_SHOWBASE = 36;
+	const DATA_FLAG_REARING = 37;
+	const DATA_FLAG_VIBRATING = 38;
+	const DATA_FLAG_IDLING = 39;
+>>>>>>> d7378fe6... Some new metadata properties
 
 	public static $entityCount = 1;
 	/** @var Entity[] */

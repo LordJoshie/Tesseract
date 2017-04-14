@@ -151,28 +151,6 @@ abstract class Entity extends Location implements Metadatable{
 	const DATA_FLAG_IMMOBILE = 16, DATA_FLAG_NO_AI = 16;
 	const DATA_FLAG_SILENT = 17;
 	const DATA_FLAG_WALLCLIMBING = 18;
-<<<<<<< HEAD
-	const DATA_FLAG_RESTING = 19; //for bats?
-	const DATA_FLAG_SITTING = 20;
-	const DATA_FLAG_ANGRY = 21;
-	const DATA_FLAG_INTERESTED = 22; //for mobs following players with food?
-	const DATA_FLAG_CHARGED = 23;
-	const DATA_FLAG_TAMED = 24;
-	const DATA_FLAG_LEASHED = 25;
-	const DATA_FLAG_SHEARED = 26; //for sheep
-	const DATA_FLAG_GLIDING = 27, DATA_FLAG_FALL_FLYING = 27;
-	const DATA_FLAG_ELDER = 28; //elder guardian
-	const DATA_FLAG_MOVING = 29;
-	const DATA_FLAG_BREATHING = 30; //hides bubbles if true
-	const DATA_FLAG_CHESTED = 31; //for mules?
-	const DATA_FLAG_STACKABLE = 32;
-	const DATA_FLAG_IDLING = 36;
-
-	const SOUTH = 0;
-	const WEST = 1;
-	const NORTH = 2;
-	const EAST = 3;
-=======
 
 	const DATA_FLAG_RESTING = 22;
 	const DATA_FLAG_SITTING = 23;
@@ -192,7 +170,6 @@ abstract class Entity extends Location implements Metadatable{
 	const DATA_FLAG_REARING = 37;
 	const DATA_FLAG_VIBRATING = 38;
 	const DATA_FLAG_IDLING = 39;
->>>>>>> d7378fe6... Some new metadata properties
 
 	public static $entityCount = 1;
 	/** @var Entity[] */
@@ -553,6 +530,45 @@ abstract class Entity extends Location implements Metadatable{
 
 	public function setImmobile($value = true){
 		$this->setDataFlag(self::DATA_FLAGS, self::DATA_FLAG_IMMOBILE, $value);
+	}
+
+	/**
+	 * Sets whether this entity is currently able to climb blocks. By default this is only true if the entity is climbing a ladder or vine or similar block.
+	 *
+	 * @return bool
+	 */
+	public function isClimbing() : bool{
+		return $this->getDataFlag(self::DATA_FLAGS, self::DATA_FLAG_WALLCLIMBING);
+	}
+
+	/**
+	 * Sets whether the entity can climb blocks. If true, the entity can climb anything, if false, they cannot climb anything (this includes ladders and vines).
+	 *
+	 * @param bool $value
+	 */
+	public function setClimbing(bool $value = true){
+		$this->setDataFlag(self::DATA_FLAGS, self::DATA_FLAG_WALLCLIMBING, $value);
+	}
+
+	/**
+	 * Checks blocks adjacent to the entity's feet to check if it is currently colliding with a climbable block.
+	 */
+	protected function checkClimbing(){
+		$climbing = false;
+
+		$block = $this->level->getBlock($this);
+		if($block->canClimb()){
+			$climbing = true;
+		}else{
+			for($i = 0; $i <= 5; ++$i){
+				if($block->getSide($i)->canClimb()){
+					$climbing = true;
+					break;
+				}
+			}
+		}
+
+		$this->setClimbing($climbing);
 	}
 
 	/**
@@ -1587,6 +1603,7 @@ abstract class Entity extends Location implements Metadatable{
 			$this->checkChunks();
 
 			$this->checkGroundState($movX, $movY, $movZ, $dx, $dy, $dz);
+			$this->checkClimbing();
 			$this->updateFallState($dy, $this->onGround);
 
 			if($movX != $dx){

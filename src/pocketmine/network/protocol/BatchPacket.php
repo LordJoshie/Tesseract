@@ -26,24 +26,46 @@ namespace pocketmine\network\protocol;
 
 class BatchPacket extends DataPacket{
 
-	const NETWORK_ID = Info::BATCH_PACKET;
+    const NETWORK_ID = 0xfe;
 
-	public $payload;
+    public $payload;
+    public $compressed = false;
 
-	public function decode(){
-		$this->payload = $this->getString();
-	}
+    public function canBeBatched() : bool{
+        return false;
+    }
 
-	public function encode(){
-		$this->reset();
-		$this->putString($this->payload);
-	}
+    public function canBeSentBeforeLogin() : bool{
+        return true;
+    }
 
-	/**
-	 * @return PacketName|string
+    public function decode(){
+        $this->payload = $this->get(true);
+    }
+
+    public function encode(){
+        $this->reset();
+        assert($this->compressed);
+        $this->put($this->payload);
+    }
+
+    /**
+     * @param DataPacket|string $packet
      */
-	public function getName(){
-		return "BatchPacket";
-	}
+    public function addPacket($packet){
+        if($packet instanceof DataPacket){
+            if(!$packet->isEncoded){
+                $packet->encode();
+            }
+            $packet = $packet->buffer;
+        }
 
+        $this->payload .= Binary::writeUnsignedVarInt(strlen($packet)) . $packet;
+    }
+
+    public function compress(int $level = 7){
+        assert(!$this->compressed);
+        $this->payload = zlib_encode($this->payload, ZLIB_ENCODING_DEFLATE, $level);
+        $this->compressed = true;
+    }
 }

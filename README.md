@@ -4,7 +4,7 @@
 -------------
 **Tesseract is the advanced server software based on PocketMine-MP and Genisys! <br>
 Tesseract supports packet and event debug system (for plugin developers) <br>
-Contact us on [Gitter](https://gitter.im/ServerSoftwareArchive/Lobby?utm_source=ios&utm_medium=link&utm_campaign=ios-share-link) for support**
+Contact us on [Gitter](https://gitter.im/ServerSoftwareArchive1/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) for support**
 
 ## Information Title
 **TEXTURES PACKS CURRENTLY ARE IN BETA, PLEASE REPORT ANY BUGS!** <br>

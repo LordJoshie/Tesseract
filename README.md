@@ -4,21 +4,21 @@
 -------------
 **Tesseract is the advanced server software based on PocketMine-MP and Genisys! <br>
 Tesseract supports packet and event debug system (for plugin developers) <br>
-Contact us on [Gitter](https://gitter.im/TesseractTeam/Lobby?utm_source=ios&utm_medium=link&utm_campaign=ios-share-link) for support**
+Contact us on [Gitter](https://gitter.im/ServerSoftwareArchive/Lobby?utm_source=ios&utm_medium=link&utm_campaign=ios-share-link) for support**
 
 ## Information Title
 **TEXTURES PACKS CURRENTLY ARE IN BETA, PLEASE REPORT ANY BUGS!** <br>
 
 ## Notice
 
-**Tesseract is supported to Minecraft:PE 1.0.6 & [1.1.0 beta](https://github.com/TesseractTeam/Tesseract/tree/MCPE-1.1-Beta)  (PE & Win10) <br>
+**Tesseract is supported to Minecraft:PE 1.0.6 (PE & Win10) <br>
 Report any issues and we will try to fix them for you.**  <br>
 
 ## Builds
 __Travis-CI Build:__<br>
- [![Travis-CI](https://travis-ci.org/TesseractTeam/Tesseract.svg?branch=master)](https://travis-ci.org/TesseractTeam/Tesseract)<br>
+ [![Travis-CI](https://img.shields.io/travis/ServerSoftwareArchive/Tesseract.svg)](https://travis-ci.org/ServerSoftwareArchive/Tesseract)<br>
  __CircleCI Build__<br>
-[![CircleCI](https://circleci.com/gh/circleci/mongofinil.svg?&style=shield&circle-token=8678c9589c2e09b659783b4d7a65365fa982127e/)](https://circleci.com/gh/TesseractTeam/Tesseract)
+[![CircleCI](https://img.shields.io/circleci/project/github/ServerSoftwareArchive/Tesseract.svg?style=flat-square)](https://circleci.com/gh/ServerSoftwareArchive/Tesseract)
 
 ## Quick Links (Instead of scrolling, click these!)
 
@@ -32,7 +32,7 @@ __[Third Party Libraries and Protocols Used](#ThirdpartyLibrariesProtocolsUsed)_
 
 **Self-installation:**<br>
 Supported platforms: Linux, Windows, OS X, Raspberry Pi, and ODROID <br>
-[Installation](https://github.com/TesseractTeam/Tesseract/wiki/Installation)<br>
+[Installation](https://github.com/ServerSoftwareArchive/Tesseract/wiki/Installation)<br>
 
 __[Back to QuickLinks](#quick-links-instead-of-scrolling-click-these)__
 <br>
@@ -70,7 +70,7 @@ __[Back to QuickLinks](#quick-links-instead-of-scrolling-click-these)__<br>
 	You should have received a copy of the GNU Lesser General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-__[License Page](https://github.com/TesseractTeam/Tesseract/blob/master/LICENSE)__
+__[License Page](https://github.com/ServerSoftwareArchive/Tesseract/blob/master/LICENSE)__
 <br>
 __[Back to QuickLinks](#quick-links-instead-of-scrolling-click-these)__
 <br>

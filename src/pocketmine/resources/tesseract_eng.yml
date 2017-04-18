@@ -40,8 +40,11 @@ network:
  raklib-disable: false
 
 packs:
-  force-resources: false
-  resource-stack: []
+ #This setting decides if upon loading game, a Resource Pack prompt will show up
+ #Recommended it stays False, as it is in Beta (still needs fixing)
+ force-resources: false
+ #This displays the order in which packs will be installed, it will be above Default textures (and other packs client has)
+ resource-stack: []
  
 player:
  #This setting decides if hunger will be enabled in game

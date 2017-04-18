@@ -1,3 +1,4 @@
+# Warning: The old repo has been taken over, please report him [here](https://github.com/contact/report-abuse?report=LinuxLogo) for taking over the repo and removing the owner!!
 ![Tesseract](http://i.imgur.com/1ga0ATy.jpg)
 
 ## Tesseract Introduction

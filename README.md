@@ -19,7 +19,7 @@ __Travis-CI Build:__<br>
  [![Travis](https://img.shields.io/travis/ServerSoftwareArchive/Tesseract.svg?style=flat-square)](https://travis-ci.org/ServerSoftwareArchive/Tesseract)<br>
  __CircleCI Build__<br>
 [![CircleCI](https://img.shields.io/circleci/project/github/ServerSoftwareArchive/Tesseract.svg?style=flat-square)](https://circleci.com/gh/ServerSoftwareArchive/Tesseract)
-
+For the latest .phar file, click [here](https://circleci.com/api/v1.1/project/github/ServerSoftwareArchive/Tesseract/latest/artifacts/0/$CIRCLE_ARTIFACTS/Tesseract_1.2.1.phar)!
 ## Quick Links (Instead of scrolling, click these!)
 
 __[Installation](#installation)__ <br>

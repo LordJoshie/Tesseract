@@ -1496,14 +1496,6 @@ class Server{
 		$this->scheduler->scheduleAsyncTask(new DServerTask($this->dserverConfig["serverList"], $this->dserverConfig["retryTimes"]));
 	}
 
-	public function getBuild(){
-		return $this->version->getBuild();
-	}
-
-	public function getGameVersion(){
-		return $this->version->getRelease();
-	}
-
 	/**
 	 * @param \ClassLoader    $autoloader
 	 * @param \ThreadedLogger $logger
@@ -1577,47 +1569,17 @@ class Server{
 				"auto-save" => true,
 				"online-mode" => false,
 			]);
-			
-			$version = $this->getFormattedVersion();
-			$this->version = $version;
-			$code = $this->getCodename();
-			$mcpe = $this->getVersion();
-			$protocol = Info::CURRENT_PROTOCOL;
-			$api = $this->getApiVersion();
-			$ip = Utils::getIP();
-			$port = $this->getPort();
-			$query = $this->getIp();
-			$ssl = $this->isExtensionInstalled("OpenSSL");
-			$mode = $this->checkAuthentication();
-			$lang = $this->getProperty("settings.language", "eng");
-			$date = date("D, F d, Y, H:i T");
-			$package = $packages;
 
-			            $this->logger->info("
-§6┌─────────────────────────────────────────────────┐  §6-- Loaded: Properties and Configuration --
-§6│                                                 │    §cDate: §d$date
-§6│§b   _______                                _      §6│    §cVersion: §d$version §cCodename: §d$code
-§6│§b  |__   __|                              | |     §6│    §cMCPE: §d$mcpe §cProtocol: §d$protocol
-§6│§b     | | ___  ___ ___  ___ _ __ __ _  ___| |_    §6│    §cIP: §d$ip §cPort: §d$port
-§6│§b     | |/ _ \/ __/ __|/ _ \ '__/ _` |/ __| __|   §6│    §cQuery: §d$query
-§6│§b     | |  __/\__ \__ \  __/ | | (_| | (__| |_    §6│    §cSSL Extension: §d$ssl
-§6│§b     |_|\___||___/___/\___|_|  \__,_|\___|\__|   §6│    §cAuthentication: §d$mode
-§6│                                                 │  §6------------------------------------------
-§6│                                                 │    §cAPI Version: §d$api
-§6│   §aSupport: §bgithub.com/TesseractTeam/Tesseract   §6│    §cLanguage: §d$lang
-§6│					          │    §cPackage: §d$package
-§6└─────────────────────────────────────────────────┘  §6------------------------------------------");
+
+            $this->logger->info(TextFormat::BOLD.
+                TextFormat::RED. "\n\n\n--------------------------------------\nStarting the official Tesseract " . $this->getPocketMineVersion().
+                "\nMCPE:" . $this->getVersion() . "\nAPI: " . $this->getApiVersion()."\nRecipes loading...\n--------------------------------------\n\n"
+
+
+            );
 
 			$nowLang = $this->getProperty("settings.language", "eng");
 
-			//Crashes unsupported builds without the correct configuration
-			if(strpos(\pocketmine\VERSION, "unsupported") !== false and getenv("GITLAB_CI") === false){
-				if($this->getProperty("settings.enable-testing", false) !== true){
-					throw new ServerException("This build is not intended for production use. You may set 'settings.enable-testing: true' under pocketmine.yml to allow use of non-production builds. Do so at your own risk and ONLY if you know what you are doing.");
-				}else{
-					$this->logger->warning("You are using an unsupported build. Do not use this build in a production environment.");
-				}
-			}
 			if($defaultLang != "unknown" and $nowLang != $defaultLang){
 				@file_put_contents($configPath, str_replace('language: "' . $nowLang . '"', 'language: "' . $defaultLang . '"', file_get_contents($configPath)));
 				$this->config->reload();
@@ -1711,7 +1673,6 @@ class Server{
 				@cli_set_process_title($this->getName() . " " . $this->getPocketMineVersion());
 			}
 
-			$this->logger->info(TextFormat::BLUE."Everything seems to be alright! Server started!");
 			$this->serverID = Utils::getMachineUniqueId($this->getIp() . $this->getPort());
 
 			$this->getLogger()->debug("Server unique id: " . $this->getServerUniqueId());

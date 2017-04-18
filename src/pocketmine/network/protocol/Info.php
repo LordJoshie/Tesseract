@@ -33,8 +33,8 @@ interface Info{
 
 	const CURRENT_PROTOCOL = 106;
 	const ACCEPTED_PROTOCOLS = [106];
-	const MINECRAFT_VERSION = "v1.0.6";
-	const MINECRAFT_VERSION_NETWORK = "1.0.6";
+	const MINECRAFT_VERSION = "v1.1.0.3";
+	const MINECRAFT_VERSION_NETWORK = "1.1.0.3";
 
 	const LOGIN_PACKET = 0x01;
 	const PLAY_STATUS_PACKET = 0x02;
@@ -124,4 +124,6 @@ interface Info{
 	const PLAY_SOUND_PACKET = 0x56;
 	const STOP_SOUND_PACKET = 0x57;
 	const SET_TITLE_PACKET = 0x58;
+    const SHOW_STORE_OFFER_PACKET = 0x5c;
+	const PURCHASE_RECEIPT_PACKET = 0x5d;
 }

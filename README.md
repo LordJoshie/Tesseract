@@ -16,7 +16,7 @@ Report any issues and we will try to fix them for you.**  <br>
 
 ## Builds
 __Travis-CI Build:__<br>
- [![Travis-CI](https://img.shields.io/travis/ServerSoftwareArchive/Tesseract.svg)](https://travis-ci.org/ServerSoftwareArchive/Tesseract)<br>
+ [![Travis](https://img.shields.io/travis/ServerSoftwareArchive/Tesseract.svg?style=flat-square)](https://travis-ci.org/ServerSoftwareArchive/Tesseract)<br>
  __CircleCI Build__<br>
 [![CircleCI](https://img.shields.io/circleci/project/github/ServerSoftwareArchive/Tesseract.svg?style=flat-square)](https://circleci.com/gh/ServerSoftwareArchive/Tesseract)
 
